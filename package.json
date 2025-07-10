@@ -78,5 +78,9 @@
     "typescript-eslint": "^8.30.1",
     "vitest": "^3.2.4",
     "yargs": "^17.7.2"
+  },
+  "dependencies": {
+    "@ai-sdk/xai": "^1.2.17",
+    "ai": "^4.3.17"
   }
 }
