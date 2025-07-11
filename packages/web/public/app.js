@@ -5,8 +5,23 @@ document.addEventListener('DOMContentLoaded', () => {
     const codeInputPlaceholder = document.getElementById('codeInputPlaceholder');
     const sendToLLMBtn = document.getElementById('sendToLLMBtn');
     const applyCodeChangesBtn = document.getElementById('applyCodeChangesBtn'); // Added for future use
+    const debugContent = document.getElementById('debugContent');
+    const toggleDebugBtn = document.getElementById('toggleDebug');
 
     let codeEditor;
+
+    // Toggle debug panel visibility
+    if (toggleDebugBtn && debugContent) {
+        toggleDebugBtn.addEventListener('click', () => {
+            if (debugContent.style.display === 'none') {
+                debugContent.style.display = 'block';
+                toggleDebugBtn.textContent = 'Hide';
+            } else {
+                debugContent.style.display = 'none';
+                toggleDebugBtn.textContent = 'Show';
+            }
+        });
+    }
 
     // Initialize CodeMirror
     if (codeInputPlaceholder) {
@@ -32,6 +47,30 @@ document.addEventListener('DOMContentLoaded', () => {
         messageElement.className = className;
         responseArea.appendChild(messageElement);
         responseArea.scrollTop = responseArea.scrollHeight; // Scroll to bottom
+    }
+
+    // Function to update debug panel
+    function updateDebugPanel(debugInfo) {
+        if (!debugContent) return;
+        
+        let debugHtml = '';
+        
+        if (debugInfo && debugInfo.length > 0) {
+            debugInfo.forEach((step, index) => {
+                const stepClass = step.type === 'error' ? 'debug-error' : 
+                                step.type === 'warning' ? 'debug-warning' :
+                                step.type === 'success' ? 'debug-success' : 'debug-info';
+                                
+                debugHtml += `<div class="debug-step">
+                    <span class="${stepClass}">[${index + 1}]</span> ${step.message}
+                </div>`;
+            });
+        } else {
+            debugHtml = '<p class="debug-placeholder">No debug information available</p>';
+        }
+        
+        debugContent.innerHTML = debugHtml;
+        debugContent.scrollTop = debugContent.scrollHeight;
     }
 
     // Remove welcome message if user starts typing in prompt
@@ -69,6 +108,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
             let llmResponseText = data.llm_response || "No specific LLM response found.";
             appendMessage(`<strong>Gemini:</strong><br>${llmResponseText.replace(/\n/g, '<br>')}`, 'llm-response', true);
+
+            // Update debug panel with backend processing info
+            if (data.debug_info) {
+                updateDebugPanel(data.debug_info);
+            }
 
             if (data.code && codeEditor) {
                 appendMessage("<em>LLM provided code. It has been placed in the editor.</em>", "server-message");

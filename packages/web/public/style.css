@@ -98,3 +98,88 @@ h1, h2 {
     box-sizing: border-box; /* Ensures padding doesn't expand the textarea */
     resize: vertical;
 }
+
+/* Debug Panel Styles */
+.debug-panel {
+    margin-top: 20px;
+    border: 2px solid #444;
+    border-radius: 8px;
+    background-color: #1a1a1a;
+    color: #e0e0e0;
+}
+
+.debug-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 15px;
+    background-color: #2d2d2d;
+    border-bottom: 1px solid #444;
+    border-radius: 6px 6px 0 0;
+}
+
+.debug-header h3 {
+    margin: 0;
+    color: #4CAF50;
+    font-size: 16px;
+}
+
+.toggle-btn {
+    background-color: #555;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.toggle-btn:hover {
+    background-color: #666;
+}
+
+.debug-content {
+    padding: 15px;
+    font-family: 'Courier New', monospace;
+    font-size: 13px;
+    line-height: 1.4;
+    max-height: 300px;
+    overflow-y: auto;
+    background-color: #0d1117;
+}
+
+.debug-step {
+    margin-bottom: 8px;
+    padding: 5px 8px;
+    border-left: 3px solid #4CAF50;
+    background-color: #1c1c1c;
+}
+
+.debug-info {
+    color: #58a6ff;
+}
+
+.debug-success {
+    color: #3fb950;
+}
+
+.debug-warning {
+    color: #d29922;
+}
+
+.debug-error {
+    color: #f85149;
+}
+
+.debug-file {
+    color: #a5a5a5;
+    background-color: #262626;
+    padding: 2px 4px;
+    border-radius: 3px;
+    font-weight: bold;
+}
+
+.debug-placeholder {
+    color: #666;
+    font-style: italic;
+}

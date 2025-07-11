@@ -11,8 +11,10 @@
   },
   "dependencies": {
     "@fastify/static": "^7.0.4",
-    "@google/gemini-cli-core": "workspace:^",
-    "fastify": "^4.28.1"
+    "fastify": "^4.28.1",
+    "dotenv": "^17.1.0",
+    "@google/generative-ai": "^0.21.0",
+    "@google/gemini-cli-core": "workspace:*"
   },
   "devDependencies": {
     "@types/node": "^20.14.10",
