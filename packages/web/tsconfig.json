@@ -1,0 +1,22 @@
+{
+  "extends": "../../tsconfig.json", // Inherit from root tsconfig
+  "compilerOptions": {
+    "outDir": "./dist", // Output directory for JS files if/when compiled
+    "rootDir": "./src",   // Source directory
+    "baseUrl": "./src",
+    "module": "ESNext", // Ensure ESM compatibility
+    "target": "ES2022", // Modern Node versions support this
+    "moduleResolution": "NodeNext", // or "Bundler" if preferred for modern tooling
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    // Add any other specific options for the web server
+  },
+  "include": ["src/**/*.ts"], // Only include files in the src directory
+  "exclude": ["node_modules", "dist"]
+}

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gemini Web UI</title>
+    <!-- CodeMirror CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.15/codemirror.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.15/theme/material-darker.min.css">
+    <!-- App specific CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Gemini Web UI</h1>
+
+        <div class="chat-area">
+            <div id="responseArea">
+                <p class="server-message">Welcome! Enter your prompt below.</p>
+            </div>
+        </div>
+
+        <div class="input-area">
+            <textarea id="promptInput" placeholder="Enter your prompt here..." rows="3"></textarea>
+            <button id="submitPrompt">Send</button>
+        </div>
+
+        <h2>Code Editor</h2>
+        <div id="codeEditorContainer">
+            <textarea id="codeInputPlaceholder">/* Code will appear here or can be pasted for the LLM to process */</textarea>
+        </div>
+        <button id="sendToLLMBtn" style="margin-top: 10px;">Send Code to LLM</button>
+         <button id="applyCodeChangesBtn" style="margin-top: 10px; margin-left: 5px; display: none;">Apply Code Changes</button>
+    </div>
+
+    <!-- CodeMirror JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.15/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.15/mode/javascript/javascript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.15/mode/python/python.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.15/mode/clike/clike.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.15/mode/xml/xml.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.15/mode/css/css.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.15/mode/htmlmixed/htmlmixed.min.js"></script>
+    <!-- App specific JS -->
+    <script src="app.js"></script>
+</body>
+</html>
