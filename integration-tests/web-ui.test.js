@@ -45,7 +45,7 @@ test('should display a mock response in the web UI', async (t) => {
   try {
     await serverReadyPromise;
 
-    const browser = await chromium.launch({ headless: false });
+    const browser = await chromium.launch({ headless: true });
     const page = await browser.newPage();
     await page.goto('http://localhost:3000');
 
