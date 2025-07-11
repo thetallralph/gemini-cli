@@ -9,6 +9,9 @@
 import './src/gemini.js';
 import { main } from './src/gemini.js';
 
+export * from './src/config/config.js';
+export * from './src/nonInteractiveCli.js';
+
 // --- Global Entry Point ---
 main().catch((error) => {
   console.error('An unexpected critical error occurred:');

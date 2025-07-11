@@ -1,0 +1,24 @@
+{
+  "name": "@google/gemini-web",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "main": "dist/server.js",
+  "scripts": {
+    "build": "echo \"Build script not yet implemented. Run with tsx for now.\"",
+    "start": "tsx watch ./src/server.ts",
+    "dev": "tsx watch ./src/server.ts"
+  },
+  "dependencies": {
+    "@fastify/static": "^7.0.4",
+    "fastify": "^4.28.1",
+    "dotenv": "^17.1.0",
+    "@google/generative-ai": "^0.21.0",
+    "@google/gemini-cli-core": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.10",
+    "tsx": "^4.16.2",
+    "typescript": "^5.5.3"
+  }
+}
